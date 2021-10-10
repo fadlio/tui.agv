@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<robot name="agv" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="driver_assembly.xacro" />
+  <xacro:include filename="carrier_assembly.xacro" />
+  <xacro:include filename="wheel.xacro" />
+  <xacro:include filename="caster.xacro" />
+
+  <xacro:include filename="sensors/kinect.xacro" />
+  <xacro:include filename="sensors/imu_sensor.xacro" />
+
+  <material name="Black">
+    <color rgba="0.2 0.2 0.2 1.0" />
+  </material>
+  <material name="Red">
+    <color rgba="0.8 0.0 0.0 1.0" />
+  </material>
+  <material name="White">
+    <color rgba="1.0 1.0 1.0 1.0" />
+  </material>
+  <material name="Gray">
+    <color rgba="0.7 0.7 0.7 1.0" />
+  </material>
+  <material name="Blue">
+    <color rgba="0.0 0.0 0.8 1.0" />
+  </material>
+
+  <!-- Properties -->
+  <xacro:property name="wheel_yoff" value="0.15" />
+  <xacro:property name="carrier_zoff" value="0.08" />
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
+      <material name="White" />
+    </visual>
+  </link>
+
+  <!-- Robot Footprint -->
+  <link name="base_footprint" />
+  <joint name="base_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="base_footprint" />
+    <origin xyz="0.0 0.0 0" rpy="0 0 0" />
+  </joint>
+
+  <!-- Driver Assembly -->
+  <xacro:driver_assembly />
+  <joint name="driver_base_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="driver_base" />
+    <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
+  </joint>
+
+  <!-- Carrier Assembly -->
+  <xacro:carrier_assembly />
+  <joint name="carrier_base_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="carrier_base" />
+    <origin xyz="0 0 ${carrier_zoff}" rpy="0 0 0" />
+  </joint>
+
+  <!-- Wheels -->
+  <xacro:wheel prefix="lwheel" yoff="${wheel_yoff}" />
+  <xacro:wheel prefix="rwheel" yoff="${-wheel_yoff}" />
+
+  <!-- Casters -->
+  <!-- Carrier base as parent -->
+  <xacro:caster parent="carrier_base" prefix="lfcaster" ztotal="${wheel_radius+carrier_zoff}" x="0.31" y="0.25" z="0.04" />
+  <xacro:caster parent="carrier_base" prefix="rfcaster" ztotal="${wheel_radius+carrier_zoff}" x="0.31" y="-0.25" z="0.04" />
+  <xacro:caster parent="carrier_base" prefix="lbcaster" ztotal="${wheel_radius+carrier_zoff}" x="-0.31" y="0.25" z="0.04" />
+  <xacro:caster parent="carrier_base" prefix="rbcaster" ztotal="${wheel_radius+carrier_zoff}" x="-0.31" y="-0.25" z="0.04" />
+
+  <!-- Sensors -->
+  <xacro:kinect x="0.31" y="0" z="${carrier_zoff-0.02}" r="0" />
+  <xacro:imu_sensor />
+
+  <gazebo>
+    <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+      <ros>
+        <namespace>/demo</namespace>
+      </ros>
+
+      <!-- wheels -->
+      <left_joint>drivewhl_l_joint</left_joint>
+      <right_joint>drivewhl_r_joint</right_joint>
+
+      <!-- kinematics -->
+      <wheel_separation>0.025</wheel_separation>
+      <wheel_diameter>0.2</wheel_diameter>
+
+      <!-- limits -->
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+    </plugin>
+  </gazebo>
+
+</robot>

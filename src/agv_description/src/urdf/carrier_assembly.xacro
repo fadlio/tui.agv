@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot name="carrier_assembly" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="beam.xacro" />
+
+  <xacro:macro name="carrier_assembly">
+
+    <link name="carrier_base">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.001 0.001 0.001" />
+        </geometry>
+      </visual>
+      <inertial>
+        <mass value="0.0001" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001" />
+      </inertial>
+    </link>
+
+    <xacro:beam prefix="c1" parent="carrier_base" length="0.48" height="0.02" x="-0.14" y="0" z="-0.01" r="1" />
+    <xacro:beam prefix="c2" parent="carrier_base" length="0.48" height="0.02" x="0.14" y="0" z="-0.01" r="1" />
+    
+    <xacro:beam prefix="c3" parent="carrier_base" length="0.48" height="0.04" x="-0.3" y="0" z="0" r="1" />
+    <xacro:beam prefix="c4" parent="carrier_base" length="0.48" height="0.04" x="0.3" y="0" z="0" r="1" />
+    <xacro:beam prefix="c5" parent="carrier_base" length="0.62" height="0.04" x="0" y="-0.25" z="0" r="0" />
+    <xacro:beam prefix="c6" parent="carrier_base" length="0.62" height="0.04" x="0" y="0.25" z="0" r="0" />
+
+  </xacro:macro>
+
+  <!-- <xacro:carrier_assembly/> -->
+</robot>
