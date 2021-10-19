@@ -31,7 +31,7 @@
         </joint>
 
         <gazebo reference="camera_link">
-            <sensor name="depth_camera" type="depth">
+            <sensor name="kinect" type="depth">
                 <visualize>true</visualize>
                 <update_rate>30.0</update_rate>
                 <camera name="camera">
@@ -42,8 +42,8 @@
                         <format>R8G8B8</format>
                     </image>
                     <clip>
-                        <near>0.05</near>
-                        <far>3</far>
+                        <near>0.08</near>
+                        <far>10</far>
                     </clip>
                 </camera>
                 <plugin name="depth_camera_controller" filename="libgazebo_ros_camera.so">
@@ -51,8 +51,8 @@
                     <alwaysOn>true</alwaysOn>
                     <updateRate>0.0</updateRate>
                     <frameName>camera_depth_frame</frameName>
-                    <pointCloudCutoff>0.5</pointCloudCutoff>
-                    <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+                    <pointCloudCutoff>0.8</pointCloudCutoff>
+                    <pointCloudCutoffMax>4.0</pointCloudCutoffMax>
                     <distortionK1>0</distortionK1>
                     <distortionK2>0</distortionK2>
                     <distortionK3>0</distortionK3>

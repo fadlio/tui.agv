@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<robot name="wheel" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="wheel"
+  xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:property name="wheel_radius" value="0.045" />
   <xacro:property name="wheel_width" value="0.04" />
@@ -35,8 +36,8 @@
     <joint name="${prefix}_joint" type="continuous">
       <parent link="base_link" />
       <child link="${prefix}_link" />
+      <axis rpy="0 0 0" xyz="0 1 0"/>
       <origin xyz="0 ${yoff} 0" rpy="0 0 0" />
-      <axis xyz="0 1 0" />
     </joint>
   </xacro:macro>
 </robot>

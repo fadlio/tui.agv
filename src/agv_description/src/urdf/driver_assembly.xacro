@@ -19,12 +19,6 @@
       </inertial>
     </link>
 
-    <!-- <joint name="driver_base_joint" type="fixed">
-      <parent link="base_link" />
-      <child link="driver_base" />
-      <origin xyz="0 0 0" rpy="0 0 0" />
-    </joint> -->
-
     <xacro:beam prefix="d1" parent="driver_base" length="0.22" height="0.02" x="-0.1" y="0" z="0" r="1" />
     <xacro:beam prefix="d2" parent="driver_base" length="0.22" height="0.02" x="0.1" y="0" z="0" r="1" />
     <xacro:beam prefix="d3" parent="driver_base" length="0.22" height="0.02" x="-0.2" y="0" z="0" r="1" />
