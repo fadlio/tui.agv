@@ -9,10 +9,6 @@
             "detail": "Build workspace (default)",
             "type": "shell",
             "command": "colcon build --merge-install --cmake-args '-DCMAKE_BUILD_TYPE=RelWithDebInfo' -Wall -Wextra -Wpedantic",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
             "problemMatcher": "$gcc"
         },
         {
@@ -20,7 +16,10 @@
             "detail": "Build workspace (debug)",
             "type": "shell",
             "command": "colcon build --symlink-install --cmake-args '-DCMAKE_BUILD_TYPE=Debug' -Wall -Wextra -Wpedantic",
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "problemMatcher": "$gcc"
         },
         // Test tasks

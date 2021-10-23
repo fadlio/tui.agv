@@ -19,11 +19,21 @@
       "request": "launch",
       "program": "${workspaceFolder}/install/${input:package}/lib/${input:package}/${input:program}",
       "args": [],
-      "preLaunchTask": "build",
+      "preLaunchTask": "debug",
       "stopAtEntry": true,
       "cwd": "${workspaceFolder}",
       "externalConsole": false,
       "MIMode": "gdb",
+      "environment": [
+        {
+          "name": "LD_PRELOAD",
+          "value": "/usr/local/lib/fakenect/libfakenect.so"
+        },
+        {
+          "name": "FAKENECT_PATH",
+          "value": "/home/lio/session"
+        }
+      ],
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -38,13 +48,13 @@
       "id": "package",
       "type": "promptString",
       "description": "Package name",
-      // "default": "examples_rclcpp_minimal_publisher"
+      "default": "kinect_ros2"
     },
     {
       "id": "program",
       "type": "promptString",
       "description": "Program name",
-      // "default": "publisher_member_function"
+      "default": "kinect_ros2"
     }
   ]
 }
