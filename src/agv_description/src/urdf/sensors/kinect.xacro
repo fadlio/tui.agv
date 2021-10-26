@@ -50,9 +50,9 @@
                     <baseline>0.2</baseline>
                     <alwaysOn>true</alwaysOn>
                     <updateRate>0.0</updateRate>
-                    <frameName>camera_depth_frame</frameName>
+                    <frameName>kinect_depth</frameName>
                     <pointCloudCutoff>0.8</pointCloudCutoff>
-                    <pointCloudCutoffMax>4.0</pointCloudCutoffMax>
+                    <pointCloudCutoffMax>6.0</pointCloudCutoffMax>
                     <distortionK1>0</distortionK1>
                     <distortionK2>0</distortionK2>
                     <distortionK3>0</distortionK3>
