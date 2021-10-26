@@ -4,6 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/src/kinect_ros2/include",
                 "/opt/ros/galactic/include/**",
                 "/usr/include/opencv4"
             ],

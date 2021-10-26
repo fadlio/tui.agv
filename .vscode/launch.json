@@ -54,7 +54,7 @@
       "id": "program",
       "type": "promptString",
       "description": "Program name",
-      "default": "kinect_ros2"
+      "default": "kinect_ros2_node"
     }
   ]
 }

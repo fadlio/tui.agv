@@ -1,8 +1,10 @@
-import launch
-from ament_index_python.packages import get_package_share_directory
-from launch.substitutions import Command, LaunchConfiguration
-import launch_ros
 import os
+
+import launch_ros
+from ament_index_python.packages import get_package_share_directory
+
+import launch
+from launch.substitutions import Command, LaunchConfiguration
 
 
 def generate_launch_description():
@@ -30,17 +32,17 @@ def generate_launch_description():
         name="joint_state_publisher",
         condition=launch.conditions.UnlessCondition(LaunchConfiguration("gui")),
     )
-    rviz_node = launch_ros.actions.Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        output="screen",
-        arguments=["-d", LaunchConfiguration("rvizconfig")],
-    )
     spawn_entity = launch_ros.actions.Node(
         package="gazebo_ros",
         executable="spawn_entity.py",
-        arguments=["-entity", "agv", "-topic", "robot_description", "-z", "0.5"],
+        arguments=[
+            "-entity",
+            "agv",
+            "-topic",
+            "robot_description",
+            "-z",
+            "0.5",
+        ],
         output="screen",
     )
     robot_localization_node = launch_ros.actions.Node(
