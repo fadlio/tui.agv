@@ -1,0 +1,10 @@
+repositories:
+  libfreenect:
+    type: git
+    url: https://github.com/OpenKinect/libfreenect.git
+    version: master
+  
+  openvslam:
+    type: git
+    url: https://github.com/OpenVSLAM-Community/openvslam.git
+    version: main
