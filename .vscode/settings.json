@@ -80,6 +80,12 @@
     ],
     "C_Cpp.default.intelliSenseMode": "clang-x64",
     "C_Cpp.formatting": "Disabled",
+    "C_Cpp.files.exclude": {
+        "**/.vscode": true,
+        "${workspaceFolder}/deps/**": true,
+        "${workspaceFolder}/build/**": true,
+        "${workspaceFolder}/install/**": true,
+    },
     "uncrustify.useReplaceOption": true,
     "uncrustify.configPath.linux": "/opt/ros/galactic/lib/python3.8/site-packages/ament_uncrustify/configuration/ament_code_style.cfg",
     "[cpp]": {
@@ -109,6 +115,7 @@
         "**/node_modules": true,
         "**/bower_components": true,
         "**/*.code-search": true,
+        "**/deps": true,
         "**/build": true,
         "**/install": true,
         "**/log": true

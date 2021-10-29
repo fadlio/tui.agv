@@ -8,3 +8,18 @@ repositories:
     type: git
     url: https://github.com/OpenVSLAM-Community/openvslam.git
     version: main
+
+  eigen:
+    type: git
+    url: https://gitlab.com/libeigen/eigen.git
+    version: 3.3.7
+
+  g2o:
+    type: git
+    url: https://github.com/RainerKuemmerle/g2o.git
+    version: 9b41a4ea5ade8e1250b9c1b279f3a9c098811b5a
+  
+  pangolin:
+    type: git
+    url: https://github.com/stevenlovegrove/Pangolin.git
+    version: ad8b5f83222291c51b4800d5a5873b0e90a0cf81

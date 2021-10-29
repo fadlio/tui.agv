@@ -3,4 +3,6 @@ install/*
 log/*
 site/*
 deps/*
+*.fbow
+!deps/COLCON_IGNORE
 !deps/deps.repos
