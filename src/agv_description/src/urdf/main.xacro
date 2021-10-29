@@ -8,6 +8,7 @@
 
   <xacro:include filename="sensors/kinect.xacro" />
   <xacro:include filename="sensors/imu_sensor.xacro" />
+  <xacro:include filename="sensors/lidar.xacro" />
 
   <material name="Black">
     <color rgba="0.2 0.2 0.2 1.0" />
@@ -77,6 +78,7 @@
   <!-- Sensors -->
   <xacro:kinect x="0.31" y="0" z="${carrier_zoff-0.02}" r="0" />
   <xacro:imu_sensor />
+  <xacro:lidar x="0" y="0" z="0.11" r="0" />
 
   <gazebo>
     <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>

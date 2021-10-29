@@ -30,6 +30,9 @@
     <xacro:beam prefix="d7" parent="driver_base" length="0.04" height="0.08" x="0" y="-0.12" z="0.05" r="0" col="0" />
     <xacro:beam prefix="d8" parent="driver_base" length="0.04" height="0.08" x="0" y="0.12" z="0.05" r="0" col="0" />
 
+    <xacro:beam prefix="d9" parent="driver_base" length="0.26" height="0.02" x="0.01" y="0" z="0.1" r="1" col="0" />
+    <xacro:beam prefix="d10" parent="driver_base" length="0.26" height="0.02" x="-0.01" y="0" z="0.1" r="1" col="0" />
+
   </xacro:macro>
 
   <!-- <xacro:driver_assembly /> -->
