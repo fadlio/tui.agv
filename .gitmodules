@@ -1,11 +1,1 @@
-[submodule "src/aws-robomaker-small-warehouse-world"]
-	path = src/aws-robomaker-small-warehouse-world
-	url = https://github.com/aws-robotics/aws-robomaker-small-warehouse-world.git
 
-[submodule "src/kinect_ros2"]
-	path = src/kinect_ros2
-	url = https://github.com/fadlio/kinect_ros2.git
-
-[submodule "src/openvslam_ros"]
-	path = src/openvslam_ros
-	url = https://github.com/OpenVSLAM-Community/openvslam_ros.git

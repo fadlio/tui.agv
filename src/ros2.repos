@@ -1,20 +1,10 @@
 repositories:
-  aws-robomaker-small-warehouse-world:
-    type: git
-    url: https://github.com/aws-robotics/aws-robomaker-small-warehouse-world.git
-    version: foxy-devel
-  
-  kinect_ros2:
-    type: git
-    url: https://github.com/fadlio/kinect_ros2.git
-    version: galactic
-
-  openvslam_ros:
-    type: git
-    url: https://github.com/OpenVSLAM-Community/openvslam_ros.git
-    version: ros2
-
   robot_localization:
     type: git
     url: https://github.com/cra-ros-pkg/robot_localization.git
     version: galactic
+
+  ros_tcp_endpoint:
+    type: git
+    url: https://github.com/Unity-Technologies/ROS-TCP-Endpoint.git
+    version: ROS2dev
